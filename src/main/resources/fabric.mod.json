@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "example_plasmid",
+  "version": "${version}",
+
+  "name": "Plasmid Example Mod",
+  "description": "Example mod for plasmid with lobby setup.",
+  "authors": [
+    "Me!"
+  ],
+  "contact": {
+    "homepage": "https://trap.su",
+    "sources": "https://github.com/rare-star/plasmid-example"
+  },
+
+  "license": "CC0-1.0",
+  "icon": "assets/example_plasmid/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "su.trap.example_plasmid.Entrypoint"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.7.4",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}

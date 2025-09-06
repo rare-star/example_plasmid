@@ -1,0 +1,5 @@
+{
+  "type": "example_plasmid:game",
+  "name": "Example Game",
+  "map_id": ["example_plasmid:example-map"]
+}

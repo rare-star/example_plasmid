@@ -1,11 +1,11 @@
-package su.trap.example_plasmid.Game;
+package su.trap.example_plasmid.game;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.level.GameType;
-import su.trap.example_plasmid.Config.GameConfig;
-import su.trap.example_plasmid.MapManager.GameMap;
-import su.trap.example_plasmid.MapManager.MapBuilder;
+import su.trap.example_plasmid.config.GameConfig;
+import su.trap.example_plasmid.map_manager.GameMap;
+import su.trap.example_plasmid.map_manager.MapBuilder;
 import xyz.nucleoid.fantasy.BubbleWorldConfig;
 import xyz.nucleoid.plasmid.game.*;
 import xyz.nucleoid.plasmid.game.config.PlayerConfig;
@@ -13,7 +13,7 @@ import xyz.nucleoid.plasmid.game.event.GameTickListener;
 import xyz.nucleoid.plasmid.game.event.PlayerAddListener;
 import xyz.nucleoid.plasmid.game.event.RequestStartListener;
 
-import static su.trap.example_plasmid.MapManager.MapBuilder.randomPosition;
+import static su.trap.example_plasmid.map_manager.MapBuilder.randomPosition;
 
 public class GameWaiting {
     private final GameSpace gameSpace;
@@ -40,7 +40,7 @@ public class GameWaiting {
 
         return context.createOpenProcedure(worldConfig, game -> {
             // This creates a lobby "game", so logic for lobby "game" start is here.
-            // It's preferred for you to use an GameOpenListener.EVENT event for any Game Open logic.
+            // It's preferred for you to use an GameOpenListener.EVENT event for any game Open logic.
 
             GameWaiting waiting = new GameWaiting(game.getSpace(), map, context.getConfig(), game.getSpace().getWorld());
             GameWaitingLobby.applyTo(game, new PlayerConfig(1, 16));
@@ -56,13 +56,13 @@ public class GameWaiting {
         // You can just leave this as is.
         for (ServerPlayer player : this.gameSpace.getWorld().players()) {
             if (!this.map.template().getBounds().contains(player.blockPosition())) {
-                map.PlayerSpawn(this.gameSpace.getWorld(), player, randomPosition(this.map.template(), "spawn"));
+                map.playerSpawn(this.gameSpace.getWorld(), player, randomPosition(this.map.template(), "spawn"));
             }
         }
     }
 
     private StartResult requestStart() {
-        // Game start. This is automatically handled by plasmid if we just set an event, obviously.
+        // game start. This is automatically handled by plasmid if we just set an event, obviously.
         // Leave this as is.
         GameActive.open(this.gameSpace, this.config, this.world, this.map);
         return StartResult.OK;
@@ -71,7 +71,7 @@ public class GameWaiting {
     private void addPlayer(ServerPlayer player) {
         // This function teleports a player to a spawn position on map.
         // Here we are randomizing spawn position of player to position within a spawn region.
-        map.PlayerSpawn(this.gameSpace.getWorld(), player, randomPosition(this.map.template(), "spawn"));
+        map.playerSpawn(this.gameSpace.getWorld(), player, randomPosition(this.map.template(), "spawn"));
         // or map.PlayerSpawn(this.gameSpace.getWorld(), player); // if you want to spawn every one in map's single default spawn point.
     }
 }

@@ -1,4 +1,4 @@
-package su.trap.example_plasmid.Config;
+package su.trap.example_plasmid.config;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;

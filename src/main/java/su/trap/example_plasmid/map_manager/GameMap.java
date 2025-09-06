@@ -1,4 +1,4 @@
-package su.trap.example_plasmid.MapManager;
+package su.trap.example_plasmid.map_manager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.MinecraftServer;
@@ -13,19 +13,19 @@ public record GameMap(MapTemplate template, BlockPos spawn) {
         return new TemplateChunkGenerator(server, this.template);
     }
 
-    public void PlayerSpawn(ServerLevel world, ServerPlayer player) {
+    public void playerSpawn(ServerLevel world, ServerPlayer player) {
         player.teleportTo(world, spawn.getX(), spawn.getY(), spawn.getZ(), 90.0F, 0.0F);
     }
 
-    public void PlayerSpawn(ServerLevel world, ServerPlayer player, BlockPos blockPos) {
+    public void playerSpawn(ServerLevel world, ServerPlayer player, BlockPos blockPos) {
         player.teleportTo(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), 90.0F, 0.0F);
     }
 
-    public void PlayerSpawn(ServerLevel world, ServerPlayer player, float yaw, float pitch) {
+    public void playerSpawn(ServerLevel world, ServerPlayer player, float yaw, float pitch) {
         player.teleportTo(world, spawn.getX(), spawn.getY(), spawn.getZ(), yaw, pitch);
     }
 
-    public void PlayerSpawn(ServerLevel world, ServerPlayer player, BlockPos blockPos, float yaw, float pitch) {
+    public void playerSpawn(ServerLevel world, ServerPlayer player, BlockPos blockPos, float yaw, float pitch) {
         player.teleportTo(world, blockPos.getX(), blockPos.getY(), blockPos.getZ(), yaw, pitch);
     }
 }

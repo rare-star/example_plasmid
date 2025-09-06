@@ -1,11 +1,11 @@
-package su.trap.example_plasmid.MapManager;
+package su.trap.example_plasmid.map_manager;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.biome.Biomes;
 import net.minecraft.world.level.levelgen.Heightmap;
-import su.trap.example_plasmid.Config.GameConfig;
+import su.trap.example_plasmid.config.GameConfig;
 import xyz.nucleoid.plasmid.game.GameOpenException;
 import xyz.nucleoid.plasmid.map.template.MapTemplate;
 import xyz.nucleoid.plasmid.map.template.MapTemplateMetadata;

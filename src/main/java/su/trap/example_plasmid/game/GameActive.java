@@ -1,4 +1,4 @@
-package su.trap.example_plasmid.Game;
+package su.trap.example_plasmid.game;
 
 import net.minecraft.network.chat.TextComponent;
 import net.minecraft.server.level.ServerLevel;
@@ -6,8 +6,8 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.GameType;
-import su.trap.example_plasmid.Config.GameConfig;
-import su.trap.example_plasmid.MapManager.GameMap;
+import su.trap.example_plasmid.config.GameConfig;
+import su.trap.example_plasmid.map_manager.GameMap;
 import xyz.nucleoid.plasmid.game.GameSpace;
 import xyz.nucleoid.plasmid.game.event.GameOpenListener;
 import xyz.nucleoid.plasmid.game.event.GameTickListener;
@@ -50,14 +50,14 @@ public class GameActive {
             game.on(PlayerDeathListener.EVENT, active::onPlayerDeath);
             game.on(GameOpenListener.EVENT, active::onGameOpen);
             for (ServerPlayer player : gameSpace.getPlayers()) {
-                map.PlayerSpawn(world, player);
+                map.playerSpawn(world, player);
                 player.setGameMode(GameType.ADVENTURE);
             }
         });
     }
 
     private void onGameOpen() {
-        // Game start logic.
+        // game start logic.
     }
 
     private void tick() {
